@@ -10,7 +10,7 @@ function replaceImage(img) {
     img.setAttribute('data-mikufied', 'true');
     img.src = mikuUrl;
 
-    // miku-fied for dynamic DOM loading sites
+    // miku-fied for dynamic DOM updates
     const observer = new MutationObserver(() => {
       if (img.src !== mikuUrl) {
         img.src = mikuUrl;
@@ -25,24 +25,41 @@ function replaceAllImages() {
   imgs.forEach(replaceImage);
 }
 
-const observer = new MutationObserver((mutations) => {
-  for (let mutation of mutations) {
-    for (let node of mutation.addedNodes) {
-      if (node.nodeType === 1) {
-        if (node.tagName === "IMG") {
-          replaceImage(node);
-        } else {
-          const imgs = node.querySelectorAll?.("img");
-          imgs?.forEach(replaceImage);
+function observeNewImages() {
+  const observer = new MutationObserver((mutations) => {
+    for (let mutation of mutations) {
+      for (let node of mutation.addedNodes) {
+        if (node.nodeType === 1) {
+          if (node.tagName === "IMG") {
+            replaceImage(node);
+          } else {
+            const imgs = node.querySelectorAll?.("img");
+            imgs?.forEach(replaceImage);
+          }
         }
       }
     }
+  });
+
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
+}
+
+// === ⛔️ MAIN GUARD: Only run if site is enabled ===
+const hostname = window.location.hostname;
+
+chrome.storage.local.get([hostname], (result) => {
+  const enabled = result[hostname];
+  
+  // default to ON if not explicitly disabled
+  if (enabled === false) {
+    console.log("🚫 Miku-fier is disabled on this site.");
+    return;
   }
-});
 
-observer.observe(document.body, {
-  childList: true,
-  subtree: true
+  console.log("✅ Miku-fier is enabled on this site.");
+  replaceAllImages();
+  observeNewImages();
 });
-
-replaceAllImages();
