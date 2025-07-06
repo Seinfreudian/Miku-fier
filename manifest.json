@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Miku-fier",
+  "version": "1.0.0",
+  "description": "Replace all images with Miku pics",
+  "permissions": [],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["miku_pics.js", "content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["miku_img/*"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
