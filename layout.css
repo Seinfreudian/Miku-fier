@@ -1,0 +1,29 @@
+.miku-card{
+    width: 174px;
+    height: 246px;
+    border-radius: 5px;
+    background: #D4ECF0;
+    justify-content: center;
+    align-items: center;
+}
+
+.miku-card img{
+    align-items: center;
+    align-self: center;
+    width: 148px;
+    height: 148px;
+    aspect-ratio: 1/1;
+    border-radius: 4px;
+    background: url("miku_img/miku1.jpg") lightgray 50% / cover no-repeat;
+}
+
+.miku-toggle{
+    display: flex;
+    width: 91px;
+    height: 32px;
+    padding: 2px 4px;
+    justify-content: flex-end;
+    align-items: center;
+    border-radius: 100px;
+    background: #03818C;
+}

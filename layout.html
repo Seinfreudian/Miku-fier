@@ -2,15 +2,24 @@
 <html>
 <head>
   <style>
-    body { font-family: Arial; padding: 10px; }
-    label { display: flex; align-items: center; cursor: pointer; }
-    input[type="checkbox"] { margin-right: 10px; }
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap');
+    body { width: 174px; height: 246px; border-radius: 5px; background: linear-gradient(180deg, #444778 42.31%, #80B6EC 100%); display: flex;
+    flex-direction: column; align-items: center; justify-content: center; 
+    padding: 5px; box-sizing: border-box; font-family: 'Poppins',sans-serif;}
+    .miku-image {width: 148px; height: 148px; object-fit: cover; border-radius: 6px;
+    margin-bottom: 16px;}
+    label { display: flex; align-items: center; cursor: pointer; color: #ffffff;
+    font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 11px;
+    letter-spacing: 0.2px;}
+    input[type="checkbox"] { margin-right: 10px; transform: scale(1.2); }
   </style>
 </head>
 <body>
+  <img src="switch_on.png" alt="Miku" class="miku-image" />
+
   <label>
     <input type="checkbox" id="toggle" />
-    Enable Miku-fier on this site
+    Enable Miku-fier!
   </label>
 
   <script src="layout.js"></script>
