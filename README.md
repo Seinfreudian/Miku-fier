@@ -1,5 +1,6 @@
 # Miku-fier
 Replace all images on site with Miku images.
 
-<img width="959" alt="image" src="https://github.com/user-attachments/assets/a8091568-b5e0-4fc4-84b9-5505da867d27" />
+<img width="959" alt="ss_mikufier" src="https://github.com/user-attachments/assets/d419d88b-a90d-4bbd-bf1a-3935ff1fb848" />
+
 
